@@ -2,7 +2,7 @@ EVeilM 🦹‍♂️🔗
 =======================
 
 
-EVeilM is an PoC EVM Bytecode Obfuscator.
+EVeilM is a PoC EVM Bytecode Obfuscator.
 
 This tool helps you **analyze** and **obfuscate** EVM bytecode, enhancing the security of your contracts and protecting your intellectual property.
 
@@ -77,16 +77,13 @@ Obfuscation Techniques 🎭
 These techniques are PoC obfuscation methods.
 
 
-`ADD Opcode Stack Manipulation`
-: Obfuscates *ADD* opcodes by introducing additional manipulations.
+`ADD Opcode Stack Manipulation`: Obfuscates *ADD* opcodes by introducing additional manipulations.
 
-`Function Signature Transformer`:
-Transforms function signatures to hide their name from decompilers.
+`Function Signature Transformer`: Transforms function signatures to hide their name from decompilers.
 
 `Control Flow Graph Spammer`: Insert random fake control flow paths.
 
-`Jump Address Transformer`: 
- Obfuscate *JUMP* and *JUMPI* opcodes PC destination
+`Jump Address Transformer`:  Obfuscate *JUMP* and *JUMPI* opcodes PC destination
 
 
 
