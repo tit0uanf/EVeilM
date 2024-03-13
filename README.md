@@ -46,7 +46,7 @@ To use the EVM Bytecode Obfuscator, follow these steps:
 
 Choose an input method:
 ```bash
-$ python eveilm
+$ python eveilm.py
 Choose input method:
 ❯ Paste Bytecode
   Select File
