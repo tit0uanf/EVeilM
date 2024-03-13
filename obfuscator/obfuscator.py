@@ -100,7 +100,12 @@ class Obfuscator:
                     added_bytes = self.jump_address_transformer(i, self.contract.opcode[i:i+len(pattern)])
                     i += added_bytes
                     self.contract.update_pc() #need to update pc after each addings of bytecodes
-
+                
+                elif name == "PUSH32" and self.contract.opcode[i:i+len(pattern)][0].byte_amount == 32 and not is_opcode_list_obfuscated(self.contract.opcode[i:i+len(pattern)]) and self.obf_type in ("full","push32"):
+                    print(f"Applying {c.Bold}PUSH32 Splitter{c.rst}...")
+                    added_bytes = self.push32_splitter(i, self.contract.opcode[i:i+len(pattern)])
+                    i += added_bytes
+                    self.contract.update_pc() 
                 #TODO: bug at ADD obfuscation
                 elif name == "ADD" and not is_opcode_list_obfuscated(self.contract.opcode[i:i+len(pattern)]) and self.obf_type in ("full","add") and random.randint(1,3) == 1:                    
                     print(f"Applying ADD Opcode Stack Manipulation...")
@@ -224,8 +229,36 @@ class Obfuscator:
         else:
             return 0
 
-        
-        
+    def push32_splitter(self, i_contract: int, push_single_opcode: list):
+        original_bytes = get_opcode_list_byte_length(push_single_opcode)
+        if isinstance(push_single_opcode[0], PUSH) and push_single_opcode[0].byte_amount == 32 and not all(char in {'0', 'f'} for char in push_single_opcode[0].value):
+            push32_value = push_single_opcode[0].value
+            if len(push32_value) == 64:
+                half_length = len(push32_value) // 2
+                first_half = push32_value[:half_length]
+                second_half = push32_value[half_length:]
+
+                leading_0_half = '0' * 32 + first_half
+                trailing_0_half = second_half + '0' * 32
+
+                lead_push = PUSH(32 ,leading_0_half)
+                trail_push = PUSH(32 ,trailing_0_half)
+
+                push_single_opcode.pop(0)
+                push_single_opcode.insert(0,lead_push)
+                push_single_opcode.insert(1,trail_push)
+                push_single_opcode.insert(2,ADD())
+                set_obf_attr_to_true(push_single_opcode)
+
+                self.contract.opcode[i_contract:i_contract+1] = push_single_opcode
+                self.contract.opcode = self.contract.opcode
+                added_bytes = get_opcode_list_byte_length(push_single_opcode) - original_bytes
+                return added_bytes
+            else:
+                return 0
+        else:
+            return 0
+
     def insert_random_func(self, i_contract: int):
         """
         Insert a sequence of opcodes representing a random Ethereum function selector into the contract's opcode list.

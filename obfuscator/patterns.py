@@ -20,6 +20,13 @@ PATTERNS = [
         pattern_type="runtime",
     ),
     Pattern(
+        name="PUSH32",
+        original=[PUSH],
+        replaceable=True,
+        obfuscated=[PUSH,PUSH,ADD],
+        pattern_type="runtime",
+    ),
+    Pattern(
          name="FUNC_SELECTOR",
         original=[DUP, PUSH, EQ, PUSH, JUMPI],
         replaceable=True,
