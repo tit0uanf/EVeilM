@@ -52,6 +52,7 @@ Choose input method:
   Select File
 ```
 
+
 If you choose "Paste Bytecode", paste the bytecode and enter the contract name:
 ```bash
 Please paste the bytecode (might get truncated): 6080604052...
@@ -59,6 +60,7 @@ What is the name of the contract ? MyContract
 ```
 > [!IMPORTANT]
 > Make sure that the bytecode input contains both Creation and Runtime Bytecode
+
 
 If you choose "Select File", select the file containing the bytecode under `/resources/original`:
 ```bash
@@ -69,7 +71,7 @@ Choose a file to obfuscate:
 ```
 
 > [!NOTE]
-> The obfuscated bytecode will be saved in the `resources/obfuscated/<obfuscation_type>` directory.
+> The obfuscated bytecode are saved in `resources/obfuscated/MyContract.obf`
 
 Obfuscation Techniques 🎭
 -----------------------
