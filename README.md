@@ -88,6 +88,11 @@ These techniques are PoC obfuscation methods.
 `Jump Address Transformer`:  Obfuscate *JUMP* and *JUMPI* opcodes PC destination
 
 
+Master Thesis Report 📝
+-------
+EVeilM is the outcome of a master's thesis project conducted at KTH Royal Institute of Technology. The project aimed to explore and develop techniques for obfuscating Ethereum smart contract bytecode. Throughout the research, various obfuscation methods were studied, analyzed, and implemented to create a comprehensive tool.
+The report is available here : [EVeilM: EVM Bytecode Obfuscation](Master_Thesis_Report_KTH.pdf)
+
 
 Disclaimer ⚠️
 -------
