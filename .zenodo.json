@@ -1,0 +1,17 @@
+{
+  "title": "EVeilM: EVM Bytecode Obfuscation",
+  "description": "A proof-of-concept obfuscator for Ethereum Virtual Machine bytecode, accompanying the KTH master's thesis 'EVeilM: EVM Bytecode Obfuscation'.",
+  "creators": [
+    {
+      "name": "Forissier, Titouan"
+    }
+  ],
+  "keywords": [
+    "Ethereum",
+    "Ethereum Virtual Machine",
+    "EVM",
+    "bytecode",
+    "smart contracts",
+    "obfuscation"
+  ]
+}

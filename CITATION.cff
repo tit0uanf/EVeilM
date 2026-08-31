@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use EVeilM, please cite the KTH master's thesis below."
+title: "EVeilM: EVM Bytecode Obfuscation"
+authors:
+  - family-names: Forissier
+    given-names: Titouan
+abstract: "A proof-of-concept obfuscator for Ethereum Virtual Machine bytecode."
+keywords:
+  - Ethereum
+  - Ethereum Virtual Machine
+  - EVM
+  - bytecode
+  - smart contracts
+  - obfuscation
+repository-code: "https://github.com/tit0uanf/EVeilM"
+preferred-citation:
+  type: thesis
+  authors:
+    - family-names: Forissier
+      given-names: Titouan
+  title: "EVeilM: EVM Bytecode Obfuscation"
+  institution:
+    name: "KTH Royal Institute of Technology"
+  year: 2024
+  url: "https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-359674"
